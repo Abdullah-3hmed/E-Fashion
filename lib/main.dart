@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         routerConfig: getIt<AppRouter>().config(
           navigatorObservers: () => [AppRoutesObserver(), AutoRouteObserver()],
         ),
-        theme: ThemeManager.darkTheme(),
+        theme: ThemeManager.lightTheme(),
       ),
     );
   }

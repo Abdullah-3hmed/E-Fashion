@@ -1,10 +1,11 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/core/util/assets_manager.dart';
 
 class SpinningAnimation extends StatefulWidget {
-  const SpinningAnimation({super.key});
+  const SpinningAnimation({super.key, required this.child});
+
+  final Widget child;
 
   @override
   SpinningAnimationState createState() => SpinningAnimationState();
@@ -40,9 +41,7 @@ class SpinningAnimationState extends State<SpinningAnimation> with SingleTickerP
                 child: child,
               );
             },
-            child: Image.asset(
-              AssetsManager.welcomeCircleImage,
-            ),
+            child: widget.child,
           ),
         ),
       ],

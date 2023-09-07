@@ -53,6 +53,8 @@ dependencies:
   syncfusion_flutter_core: ^22.2.11
   easy_stepper: ^0.7.3
   pinput: ^3.0.1
+  email_validator: ^2.1.17
+  progress_state_button: ^1.0.4
 
 dev_dependencies:
   flutter_test:
