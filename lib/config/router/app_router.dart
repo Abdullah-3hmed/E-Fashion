@@ -1,5 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/email_verification_screen.dart';
+import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/forget_password_screen.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/login_screen.dart';
+import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/reset_password_route.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/sign_up_screen.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/splash_screen.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/welcome_screen.dart';
@@ -24,7 +27,6 @@ class AppRouter extends _$AppRouter {
             ),
             CustomRoute(
               page: WelcomeRoute.page,
-              initial: true,
               transitionsBuilder: TransitionsBuilders.fadeIn,
               durationInMilliseconds: 300,
             ),
@@ -35,6 +37,22 @@ class AppRouter extends _$AppRouter {
             ),
             CustomRoute(
               page: SignUpRoute.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+              durationInMilliseconds: 300,
+            ),
+            CustomRoute(
+              page: ForgetPasswordRoute.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+              durationInMilliseconds: 300,
+            ),
+            CustomRoute(
+              page: EmailVerificationRoute.page,
+              initial: true,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+              durationInMilliseconds: 300,
+            ),
+            CustomRoute(
+              page: ResetPasswordRoute.page,
               transitionsBuilder: TransitionsBuilders.fadeIn,
               durationInMilliseconds: 300,
             ),

@@ -33,10 +33,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const CartTab(),
       );
     },
+    EmailVerificationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EmailVerificationScreen(),
+      );
+    },
     FavoriteTabRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const FavoriteTab(),
+      );
+    },
+    ForgetPasswordRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ForgetPasswordScreen(),
       );
     },
     HomeTabRoute.name: (routeData) {
@@ -49,6 +61,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const LoginScreen(),
+      );
+    },
+    ResetPasswordRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ResetPasswordScreen(),
       );
     },
     SignUpRoute.name: (routeData) {
@@ -115,6 +133,20 @@ class CartTabRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [EmailVerificationScreen]
+class EmailVerificationRoute extends PageRouteInfo<void> {
+  const EmailVerificationRoute({List<PageRouteInfo>? children})
+      : super(
+          EmailVerificationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EmailVerificationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [FavoriteTab]
 class FavoriteTabRoute extends PageRouteInfo<void> {
   const FavoriteTabRoute({List<PageRouteInfo>? children})
@@ -124,6 +156,20 @@ class FavoriteTabRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'FavoriteTabRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ForgetPasswordScreen]
+class ForgetPasswordRoute extends PageRouteInfo<void> {
+  const ForgetPasswordRoute({List<PageRouteInfo>? children})
+      : super(
+          ForgetPasswordRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ForgetPasswordRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -152,6 +198,20 @@ class LoginRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LoginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ResetPasswordScreen]
+class ResetPasswordRoute extends PageRouteInfo<void> {
+  const ResetPasswordRoute({List<PageRouteInfo>? children})
+      : super(
+          ResetPasswordRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ResetPasswordRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
