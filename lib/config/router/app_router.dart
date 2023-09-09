@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_ecommerce/features/account/presentation/screens/account_screen.dart';
+import 'package:flutter_ecommerce/features/account/presentation/screens/profile_screen.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/email_verification_screen.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/forget_password_screen.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/login_screen.dart';
@@ -6,6 +8,7 @@ import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/res
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/sign_up_screen.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/splash_screen.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/welcome_screen.dart';
+import 'package:flutter_ecommerce/features/home_feature/presentation/screens/home_screen.dart';
 import 'package:injectable/injectable.dart';
 
 part 'app_router.gr.dart';
@@ -20,7 +23,6 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(
           page: AuthRoute.page,
-          initial: true,
           children: [
             AutoRoute(
               page: SplashRoute.page,
@@ -53,6 +55,34 @@ class AppRouter extends _$AppRouter {
             ),
             CustomRoute(
               page: ResetPasswordRoute.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+              durationInMilliseconds: 300,
+            ),
+          ],
+        ),
+        AutoRoute(
+          page: HomeTabRoute.page,
+          children: [
+            CustomRoute(
+              page: HomeRoute.page,
+              initial: true,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+              durationInMilliseconds: 300,
+            ),
+          ],
+        ),
+        AutoRoute(
+          page: AccountTabRoute.page,
+          initial: true,
+          children: [
+            CustomRoute(
+              page: AccountRoute.page,
+              initial: true,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+              durationInMilliseconds: 300,
+            ),
+            CustomRoute(
+              page: ProfileRoute.page,
               transitionsBuilder: TransitionsBuilders.fadeIn,
               durationInMilliseconds: 300,
             ),
