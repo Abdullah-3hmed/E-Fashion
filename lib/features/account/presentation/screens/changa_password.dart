@@ -43,22 +43,22 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             left: 0.0,
             right: 0.0,
             top: 62.h,
-            child: Container(
-              width: 120.w,
-              height: 120.h,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: CachedNetworkImageProvider(
-                    AssetsManager.userTestImage,
+            child: Column(
+              children: [
+                ClipOval(
+                  child: CachedNetworkImage(
+                    width: 120.w,
+                    height: 120.h,
+                    fit: BoxFit.cover,
+                    imageUrl: AssetsManager.userTestImage,
                   ),
                 ),
-              ),
+              ],
             ),
           ),
           Positioned(
             top: 62.h,
-            right: 110.w,
+            right: 115.w,
             child: CircleAvatar(
               radius: 16.h,
               backgroundColor: Theme.of(context).colorScheme.primary,
