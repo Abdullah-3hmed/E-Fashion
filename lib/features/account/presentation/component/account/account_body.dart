@@ -60,7 +60,7 @@ class AccountContainerComponent extends StatelessWidget {
               ),
               AccountCustomRow(
                 onTap: () {
-                  // context.pushRoute(const LocationRoute());
+                  context.pushRoute(const LocationRoute());
                 },
                 text: "Location",
                 prefixIcon: Iconsax.location,
@@ -70,7 +70,7 @@ class AccountContainerComponent extends StatelessWidget {
               ),
               AccountCustomRow(
                 onTap: () {
-                  // context.pushRoute(const OrdersStatusRoute());
+                  context.pushRoute(const OrderStatusRoute());
                 },
                 text: "Orders Status",
                 prefixIcon: Iconsax.bag_2,
@@ -80,9 +80,9 @@ class AccountContainerComponent extends StatelessWidget {
               ),
               AccountCustomRow(
                 onTap: () {
-                  // context.pushRoute(
-                  //   const ChatSupportRoute(),
-                  // );
+                  context.pushRoute(
+                    const ChatSupportRoute(),
+                  );
                 },
                 text: "Chat Support",
                 prefixIcon: Iconsax.message,
@@ -92,9 +92,9 @@ class AccountContainerComponent extends StatelessWidget {
               ),
               AccountCustomRow(
                 onTap: () {
-                  // context.pushRoute(
-                  //   const ChangePasswordRoute(),
-                  // );
+                  context.pushRoute(
+                    const ChangePasswordRoute(),
+                  );
                 },
                 text: "Change Password",
                 prefixIcon: Iconsax.lock,
@@ -103,33 +103,37 @@ class AccountContainerComponent extends StatelessWidget {
                 height: 14.h,
               ),
               AccountCustomRow(
-                enableOnTap: false,
                 text: "Notifications",
                 prefixIcon: Iconsax.notification,
                 suffixWidget: IconSwitcher(
-                  initialSwitcherValue: true,
+                  initialSwitcherValue: false,
                   activeTrackColor: Theme.of(context).colorScheme.error,
                   activeIconColor: Colors.white,
                   activeThumbColor: Colors.white,
                   disabledTrackColor: ColorsManager.successColor,
-                  onChanged: (switched) {
-                    debugPrint(switched.toString());
-                  },
+                  onChanged: (switched) {},
                   activeIcon: Icons.notifications_off_outlined,
                   disabledIcon: Icons.notifications_active_outlined,
                 ),
               ),
               SizedBox(
+                height: 7.h,
+              ),
+              AccountCustomRow(
+                text: "App Theme",
+                prefixIcon: Iconsax.sun_1,
+                suffixWidget: IconSwitcher(
+                  initialSwitcherValue: false,
+                  onChanged: (switched) {
+                    debugPrint(switched.toString());
+                  },
+                  activeIcon: Iconsax.sun_1,
+                  disabledIcon: Iconsax.moon5,
+                ),
+              ),
+              SizedBox(
                 height: 14.h,
               ),
-              // AccountCustomRow(
-              //   prefixIcon: Iconsax.moon5,
-              //   text: "Dark Mode",
-              //   suffixWidget: IconSwitcher(
-              //     activeIcon: Icons.motion_photos_on_outlined,
-              //     disabledIcon: Icons.,
-              //   ),
-              // ),
             ],
           ),
         ),

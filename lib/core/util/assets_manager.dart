@@ -12,6 +12,10 @@ class AssetsManager {
   static const String largeCardShape = 'assets/images/large_card_shape.png';
   static const String badSvgIcon = 'assets/images/bad.svg';
   static const String notBadSvgIcon = 'assets/images/not_bad.svg';
+  static const String stepperImage1 = 'assets/images/stepper_image1.png';
+  static const String stepperImage2 = 'assets/images/stepper_image2.png';
+  static const String stepperImage3 = 'assets/images/stepper_image3.png';
+
   static const String greatSvgIcon = 'assets/images/great.svg';
   static const String welcomeCircleImage = 'assets/images/welcome_circle_image.png';
   static const String welcomeCircleArrow = 'assets/images/welcome_circle_arrow.png';

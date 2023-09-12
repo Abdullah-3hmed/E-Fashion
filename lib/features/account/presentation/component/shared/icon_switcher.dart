@@ -47,7 +47,9 @@ class _IconSwitcherState extends State<IconSwitcher> {
           activeTrackColor: widget.activeTrackColor,
           inactiveTrackColor: widget.disabledTrackColor,
           inactiveThumbColor: widget.disabledThumbColor,
-          onChanged: widget.onChanged,
+          onChanged: (value) {
+            switcherValue = value;
+          },
           value: switcherValue,
         ),
         switcherValue

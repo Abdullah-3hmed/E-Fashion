@@ -1,5 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_ecommerce/features/account/presentation/screens/account_screen.dart';
+import 'package:flutter_ecommerce/features/account/presentation/screens/changa_password.dart';
+import 'package:flutter_ecommerce/features/account/presentation/screens/chat_support.dart';
+import 'package:flutter_ecommerce/features/account/presentation/screens/delivery_status_screen.dart';
+import 'package:flutter_ecommerce/features/account/presentation/screens/location_screen.dart';
+import 'package:flutter_ecommerce/features/account/presentation/screens/order_status_screen.dart';
 import 'package:flutter_ecommerce/features/account/presentation/screens/profile_screen.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/email_verification_screen.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/forget_password_screen.dart';
@@ -83,6 +88,31 @@ class AppRouter extends _$AppRouter {
             ),
             CustomRoute(
               page: ProfileRoute.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+              durationInMilliseconds: 300,
+            ),
+            CustomRoute(
+              page: ChangePasswordRoute.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+              durationInMilliseconds: 300,
+            ),
+            CustomRoute(
+              page: LocationRoute.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+              durationInMilliseconds: 300,
+            ),
+            CustomRoute(
+              page: DeliveryStatusRoute.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+              durationInMilliseconds: 300,
+            ),
+            CustomRoute(
+              page: ChatSupportRoute.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+              durationInMilliseconds: 300,
+            ),
+            CustomRoute(
+              page: OrderStatusRoute.page,
               transitionsBuilder: TransitionsBuilders.fadeIn,
               durationInMilliseconds: 300,
             ),

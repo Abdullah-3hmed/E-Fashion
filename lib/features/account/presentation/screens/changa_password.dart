@@ -12,14 +12,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
 @RoutePage()
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+class ChangePasswordScreen extends StatefulWidget {
+  const ChangePasswordScreen({super.key});
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   late final GlobalKey<FormState> _formKey;
   late AutovalidateMode _autoValidateMode;
 
@@ -43,10 +43,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
             left: 0.0,
             right: 0.0,
             top: 62.h,
-            child: CircleAvatar(
-              radius: 60.w,
-              backgroundImage: const CachedNetworkImageProvider(
-                AssetsManager.userTestImage,
+            child: Container(
+              width: 120.w,
+              height: 120.h,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: CachedNetworkImageProvider(
+                    AssetsManager.userTestImage,
+                  ),
+                ),
               ),
             ),
           ),
@@ -93,7 +99,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 16.h,
                       ),
                       Text(
-                        "Edit Profile",
+                        "Change Password",
                         style: Theme.of(context).textTheme.titleMedium!.copyWith(
                               fontSize: 18.sp,
                             ),
@@ -102,24 +108,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 70.h,
                       ),
                       const CustomTextFormField(
-                        type: TextInputType.name,
-                        prefixIcon: Iconsax.user,
-                        label: "Name",
-                        hintText: "Tara Slander",
-                        autofillHints: [AutofillHints.name],
+                        type: TextInputType.visiblePassword,
+                        prefixIcon: Iconsax.lock,
+                        suffixIcon: Iconsax.eye,
+                        obscureText: true,
+                        autofillHints: [AutofillHints.password],
+                        hintText: "Old password",
+                        label: "Old password",
                       ),
                       SizedBox(
                         height: 20.h,
                       ),
                       const CustomTextFormField(
-                        type: TextInputType.name,
-                        prefixIcon: Iconsax.call,
-                        label: "Phone number",
-                        hintText: "312 250 361 500",
-                        autofillHints: [AutofillHints.telephoneNumber],
+                        type: TextInputType.visiblePassword,
+                        prefixIcon: Iconsax.lock,
+                        suffixIcon: Iconsax.eye,
+                        obscureText: true,
+                        autofillHints: [AutofillHints.newPassword],
+                        hintText: "New password",
+                        label: "New password",
                       ),
                       SizedBox(
-                        height: 40.h,
+                        height: 20.h,
+                      ),
+                      const CustomTextFormField(
+                        type: TextInputType.visiblePassword,
+                        prefixIcon: Iconsax.lock,
+                        suffixIcon: Iconsax.eye,
+                        obscureText: true,
+                        autofillHints: [AutofillHints.newPassword],
+                        hintText: "Confirm password",
+                        label: "Confirm password",
+                      ),
+                      SizedBox(
+                        height: 50.h,
                       ),
                       Center(
                         child: SecondaryButton(

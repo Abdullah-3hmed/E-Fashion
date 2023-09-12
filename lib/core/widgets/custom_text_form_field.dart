@@ -54,77 +54,74 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 75.h,
-      child: TextFormField(
-        controller: widget.controller,
-        keyboardType: widget.type,
-        obscureText: _obscuredText ?? false,
-        onSaved: widget.onSaved,
-        autofillHints: widget.autofillHints,
-        onFieldSubmitted: widget.onSubmit,
-        onTapOutside: (event) => FocusScope.of(context).unfocus(),
-        style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
-        decoration: InputDecoration(
-          errorStyle: Theme.of(context).textTheme.bodySmall,
-          hintText: widget.hintText,
-          errorMaxLines: 1,
-          prefixIcon: widget.prefixIcon == null
-              ? null
-              : Icon(
-                  widget.prefixIcon,
-                ),
-          suffixIcon: IconButton(
-            icon: Icon(buildSuffixIcon()),
-            onPressed: () {
-              if (_obscuredText != null) {
-                setState(() {
-                  _obscuredText = !_obscuredText!;
-                });
-              }
-              widget.onSuffixPress;
-            },
-          ),
-          labelText: widget.label,
-          labelStyle: Theme.of(context).textTheme.bodySmall,
-          contentPadding: const EdgeInsets.all(15.0).r,
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(widget.borderRadius ?? 8.0).r,
-            borderSide: BorderSide(
-              color: widget.enableBorderColor ?? Theme.of(context).colorScheme.outline,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(widget.borderRadius ?? 8.0).r,
-            borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(widget.borderRadius ?? 8.0).r,
-            borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.error,
-            ),
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(widget.borderRadius ?? 8.0).r,
-            borderSide: BorderSide(
-              color: widget.enableBorderColor ?? Theme.of(context).colorScheme.outline,
-            ),
+    return TextFormField(
+      controller: widget.controller,
+      keyboardType: widget.type,
+      obscureText: _obscuredText ?? false,
+      onSaved: widget.onSaved,
+      autofillHints: widget.autofillHints,
+      onFieldSubmitted: widget.onSubmit,
+      onTapOutside: (event) => FocusScope.of(context).unfocus(),
+      style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).colorScheme.onSurfaceVariant),
+      decoration: InputDecoration(
+        errorStyle: Theme.of(context).textTheme.bodySmall,
+        hintText: widget.hintText,
+        errorMaxLines: 1,
+        prefixIcon: widget.prefixIcon == null
+            ? null
+            : Icon(
+                widget.prefixIcon,
+              ),
+        suffixIcon: IconButton(
+          icon: Icon(buildSuffixIcon()),
+          onPressed: () {
+            if (_obscuredText != null) {
+              setState(() {
+                _obscuredText = !_obscuredText!;
+              });
+            }
+            widget.onSuffixPress;
+          },
+        ),
+        labelText: widget.label,
+        labelStyle: Theme.of(context).textTheme.bodySmall,
+        contentPadding: const EdgeInsets.all(15.0).r,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.borderRadius ?? 8.0).r,
+          borderSide: BorderSide(
+            color: widget.enableBorderColor ?? Theme.of(context).colorScheme.outline,
           ),
         ),
-        validator: (value) {
-          if (widget.isEmail) {
-            if (value!.isNotEmpty && !EmailValidator.validate(value)) {
-              return "Enter a valid mail";
-            }
-          }
-          if (value!.isEmpty) {
-            return '${widget.label} required';
-          }
-          return null;
-        },
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.borderRadius ?? 8.0).r,
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.primary,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.borderRadius ?? 8.0).r,
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.error,
+          ),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.borderRadius ?? 8.0).r,
+          borderSide: BorderSide(
+            color: widget.enableBorderColor ?? Theme.of(context).colorScheme.outline,
+          ),
+        ),
       ),
+      validator: (value) {
+        if (widget.isEmail) {
+          if (value!.isNotEmpty && !EmailValidator.validate(value)) {
+            return "Enter a valid mail";
+          }
+        }
+        if (value!.isEmpty) {
+          return '${widget.label} required';
+        }
+        return null;
+      },
     );
   }
 
