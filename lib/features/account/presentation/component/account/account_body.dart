@@ -1,17 +1,22 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/config/router/app_router.dart';
-import 'package:flutter_ecommerce/core/util/colors_manager.dart';
-import 'package:flutter_ecommerce/core/util/size_manager.dart';
 import 'package:flutter_ecommerce/core/widgets/container_button.dart';
 import 'package:flutter_ecommerce/features/account/presentation/component/account/account_custom_row.dart';
+import 'package:flutter_ecommerce/features/account/presentation/component/account/custom_switch.dart';
 import 'package:flutter_ecommerce/features/account/presentation/component/shared/account_clipped_container.dart';
-import 'package:flutter_ecommerce/features/account/presentation/component/shared/icon_switcher.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
-class AccountContainerComponent extends StatelessWidget {
+class AccountContainerComponent extends StatefulWidget {
   const AccountContainerComponent({super.key});
+
+  @override
+  State<AccountContainerComponent> createState() => _AccountContainerComponentState();
+}
+
+class _AccountContainerComponentState extends State<AccountContainerComponent> {
+  bool switchValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +25,7 @@ class AccountContainerComponent extends StatelessWidget {
       right: 0.0,
       bottom: -5.0,
       child: AccountClippedContainer(
-        height: SizeManager.screenHeight * 0.75,
+        // height: SizeManager.screenHeight * 0.75,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0).r,
           child: Column(
@@ -102,37 +107,72 @@ class AccountContainerComponent extends StatelessWidget {
               SizedBox(
                 height: 14.h,
               ),
+              // AccountCustomRow(
+              //   text: "Notifications",
+              //   prefixIcon: Iconsax.notification,
+              //   suffixWidget: IconSwitcher(
+              //     initialSwitcherValue: false,
+              //     activeTrackColor: Theme.of(context).colorScheme.error,
+              //     activeIconColor: Colors.white,
+              //     activeThumbColor: Colors.white,
+              //     disabledTrackColor: ColorsManager.successColor,
+              //     onChanged: (switched) {},
+              //     activeIcon: Icons.notifications_off_outlined,
+              //     disabledIcon: Icons.notifications_active_outlined,
+              //   ),
+              // ),
               AccountCustomRow(
-                text: "Notifications",
                 prefixIcon: Iconsax.notification,
-                suffixWidget: IconSwitcher(
-                  initialSwitcherValue: false,
-                  activeTrackColor: Theme.of(context).colorScheme.error,
-                  activeIconColor: Colors.white,
-                  activeThumbColor: Colors.white,
-                  disabledTrackColor: ColorsManager.successColor,
-                  onChanged: (switched) {},
-                  activeIcon: Icons.notifications_off_outlined,
-                  disabledIcon: Icons.notifications_active_outlined,
+                text: "Notifications",
+                tabbed: false,
+                suffixWidget: AccountCustomSwitch(
+                  switchValue: switchValue,
+                  enabledIcon: Icons.notifications_active_outlined,
+                  disabledIcon: Icons.notifications_off_outlined,
+                  disabledIconColor: Colors.white,
+                  onChanged: (value) {
+                    setState(() {
+                      switchValue = value;
+                    });
+                  },
+                ),
+              ),
+              SizedBox(
+                height: 14.h,
+              ),
+              AccountCustomRow(
+                prefixIcon: Iconsax.sun_1,
+                text: "App Theme",
+                tabbed: false,
+                suffixWidget: AccountCustomSwitch(
+                  switchValue: switchValue,
+                  enabledIcon: Iconsax.sun_1,
+                  disabledIcon: Iconsax.moon5,
+                  disabledIconColor: Colors.white,
+                  onChanged: (value) {
+                    setState(() {
+                      switchValue = value;
+                    });
+                  },
                 ),
               ),
               SizedBox(
                 height: 7.h,
               ),
-              AccountCustomRow(
-                text: "App Theme",
-                prefixIcon: Iconsax.sun_1,
-                suffixWidget: IconSwitcher(
-                  initialSwitcherValue: false,
-                  onChanged: (switched) {
-                    debugPrint(switched.toString());
-                  },
-                  activeIcon: Iconsax.sun_1,
-                  disabledIcon: Iconsax.moon5,
-                ),
-              ),
+              // AccountCustomRow(
+              //   text: "App Theme",
+              //   prefixIcon: Iconsax.sun_1,
+              //   suffixWidget: IconSwitcher(
+              //     initialSwitcherValue: false,
+              //     onChanged: (switched) {
+              //       debugPrint(switched.toString());
+              //     },
+              //     activeIcon: Iconsax.sun_1,
+              //     disabledIcon: Iconsax.moon5,
+              //   ),
+              // ),
               SizedBox(
-                height: 14.h,
+                height: 90.h,
               ),
             ],
           ),

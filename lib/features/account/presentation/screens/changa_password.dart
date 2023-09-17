@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/core/util/assets_manager.dart';
-import 'package:flutter_ecommerce/core/util/size_manager.dart';
 import 'package:flutter_ecommerce/core/widgets/blurred_background_image.dart';
 import 'package:flutter_ecommerce/core/widgets/container_button.dart';
 import 'package:flutter_ecommerce/core/widgets/custom_text_form_field.dart';
@@ -77,7 +76,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             right: 0.0,
             bottom: -5.0,
             child: AccountClippedContainer(
-              height: SizeManager.screenHeight * 0.75,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0).r,
                 child: Form(
@@ -110,7 +108,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       const CustomTextFormField(
                         type: TextInputType.visiblePassword,
                         prefixIcon: Iconsax.lock,
-                        suffixIcon: Iconsax.eye,
+                        suffixIcon: Icon(Iconsax.eye),
                         obscureText: true,
                         autofillHints: [AutofillHints.password],
                         hintText: "Old password",
@@ -122,7 +120,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       const CustomTextFormField(
                         type: TextInputType.visiblePassword,
                         prefixIcon: Iconsax.lock,
-                        suffixIcon: Iconsax.eye,
+                        suffixIcon: Icon(Iconsax.eye),
                         obscureText: true,
                         autofillHints: [AutofillHints.newPassword],
                         hintText: "New password",
@@ -134,7 +132,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       const CustomTextFormField(
                         type: TextInputType.visiblePassword,
                         prefixIcon: Iconsax.lock,
-                        suffixIcon: Iconsax.eye,
+                        suffixIcon: Icon(Iconsax.eye),
                         obscureText: true,
                         autofillHints: [AutofillHints.newPassword],
                         hintText: "Confirm password",

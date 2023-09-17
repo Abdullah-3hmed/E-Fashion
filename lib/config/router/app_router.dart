@@ -13,6 +13,7 @@ import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/res
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/sign_up_screen.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/splash_screen.dart';
 import 'package:flutter_ecommerce/features/auth_feature/presentation/screens/welcome_screen.dart';
+import 'package:flutter_ecommerce/features/cart/presentation/screens/cart_screen.dart';
 import 'package:flutter_ecommerce/features/home_feature/presentation/screens/home_screen.dart';
 import 'package:injectable/injectable.dart';
 
@@ -113,6 +114,17 @@ class AppRouter extends _$AppRouter {
             ),
             CustomRoute(
               page: OrderStatusRoute.page,
+              transitionsBuilder: TransitionsBuilders.fadeIn,
+              durationInMilliseconds: 300,
+            ),
+          ],
+        ),
+        AutoRoute(
+          page: CartTabRoute.page,
+          children: [
+            CustomRoute(
+              page: CartRoute.page,
+              initial: true,
               transitionsBuilder: TransitionsBuilders.fadeIn,
               durationInMilliseconds: 300,
             ),

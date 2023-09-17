@@ -1,7 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconsax/iconsax.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -25,7 +24,7 @@ class CustomTextFormField extends StatefulWidget {
   final TextEditingController? controller;
   final TextInputType type;
   final IconData? prefixIcon;
-  final IconData? suffixIcon;
+  final Widget? suffixIcon;
   final bool? obscureText;
   final bool isEmail;
   final String? label;
@@ -72,17 +71,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             : Icon(
                 widget.prefixIcon,
               ),
-        suffixIcon: IconButton(
-          icon: Icon(buildSuffixIcon()),
-          onPressed: () {
-            if (_obscuredText != null) {
-              setState(() {
-                _obscuredText = !_obscuredText!;
-              });
-            }
-            widget.onSuffixPress;
-          },
-        ),
+        suffixIcon: widget.suffixIcon,
         labelText: widget.label,
         labelStyle: Theme.of(context).textTheme.bodySmall,
         contentPadding: const EdgeInsets.all(15.0).r,
@@ -125,13 +114,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     );
   }
 
-  IconData? buildSuffixIcon() {
-    if (_obscuredText == true) {
-      return Iconsax.eye;
-    } else if (_obscuredText == false) {
-      return Iconsax.eye_slash;
-    } else {
-      return widget.suffixIcon;
-    }
-  }
+  // IconData? buildSuffixIcon() {
+  //   if (_obscuredText == true) {
+  //     return Iconsax.eye;
+  //   } else if (_obscuredText == false) {
+  //     return Iconsax.eye_slash;
+  //   } else {
+  //     return widget.suffixIcon;
+  //   }
+  // }
 }

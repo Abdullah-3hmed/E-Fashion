@@ -15,6 +15,11 @@ class AssetsManager {
   static const String stepperImage1 = 'assets/images/stepper_image1.png';
   static const String stepperImage2 = 'assets/images/stepper_image2.png';
   static const String stepperImage3 = 'assets/images/stepper_image3.png';
+  static const String payment1 = 'assets/images/payment1.png';
+  static const String payment2 = 'assets/images/payment2.png';
+  static const String payment3 = 'assets/images/payment3.png';
+  static const String payment4 = 'assets/images/payment4.png';
+  static const String payment5 = 'assets/images/payment5.png';
 
   static const String greatSvgIcon = 'assets/images/great.svg';
   static const String welcomeCircleImage = 'assets/images/welcome_circle_image.png';

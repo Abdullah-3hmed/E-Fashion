@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/core/util/assets_manager.dart';
-import 'package:flutter_ecommerce/core/util/size_manager.dart';
 import 'package:flutter_ecommerce/core/widgets/blurred_background_image.dart';
 import 'package:flutter_ecommerce/core/widgets/container_button.dart';
 import 'package:flutter_ecommerce/core/widgets/custom_text_form_field.dart';
@@ -43,16 +42,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
             left: 0.0,
             right: 0.0,
             top: 62.h,
-            child: CircleAvatar(
-              radius: 60.w,
-              backgroundImage: const CachedNetworkImageProvider(
-                AssetsManager.userTestImage,
-              ),
+            child: Column(
+              children: [
+                ClipOval(
+                  child: CachedNetworkImage(
+                    width: 120.w,
+                    height: 120.h,
+                    fit: BoxFit.cover,
+                    imageUrl: AssetsManager.userTestImage,
+                  ),
+                ),
+              ],
             ),
           ),
           Positioned(
             top: 62.h,
-            right: 110.w,
+            right: 115.w,
             child: CircleAvatar(
               radius: 16.h,
               backgroundColor: Theme.of(context).colorScheme.primary,
@@ -71,7 +76,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             right: 0.0,
             bottom: -5.0,
             child: AccountClippedContainer(
-              height: SizeManager.screenHeight * 0.75,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0).r,
                 child: Form(

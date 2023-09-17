@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   CustomTextFormField(
                     type: TextInputType.visiblePassword,
                     prefixIcon: Iconsax.lock,
-                    suffixIcon: Iconsax.eye,
+                    suffixIcon: const Icon(Iconsax.eye),
                     obscureText: true,
                     autofillHints: const [AutofillHints.password],
                     label: "Password",

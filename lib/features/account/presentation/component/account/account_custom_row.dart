@@ -8,20 +8,20 @@ class AccountCustomRow extends StatelessWidget {
     required this.prefixIcon,
     required this.text,
     this.onTap,
-    this.enableOnTap = true,
     this.suffixWidget,
+    this.tabbed = true,
   });
 
   final IconData prefixIcon;
   final Widget? suffixWidget;
   final String text;
-  final bool enableOnTap;
+  final bool tabbed;
   final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: enableOnTap ? onTap : null,
+      onTap: tabbed ? onTap : null,
       child: Row(
         children: [
           Icon(

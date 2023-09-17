@@ -63,7 +63,7 @@ class ChatSupportScreen extends StatelessWidget {
                       hintText: 'Message',
                       type: TextInputType.text,
                       borderRadius: 12.0,
-                      suffixIcon: Iconsax.attach_square5,
+                      suffixIcon: const Icon(Iconsax.attach_square5),
                       enableBorderColor: Colors.transparent,
                       onSuffixPress: () {},
                     ),
